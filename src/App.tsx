@@ -4,6 +4,7 @@ import { ScrollProgress } from './components/common/ScrollProgress'
 import { RouteAnnouncer } from './components/common/RouteAnnouncer'
 import { Home } from './pages/Home'
 import { ProjectDetail } from './pages/ProjectDetail'
+import { ResumePage } from './pages/ResumePage'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
+        <Route path="/resume" element={<ResumePage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </HashRouter>

@@ -13,6 +13,7 @@ import { DataArchitecture } from './sections/DataArchitecture'
 import { Timeline } from './sections/Timeline'
 import { Callout } from './sections/Callout'
 import { Architecture } from './sections/Architecture'
+import { ImageGallery } from './sections/ImageGallery'
 
 export function SectionDispatcher({ section, index }: { section: RichSection; index: number }) {
   const isAlt = index % 2 === 0
@@ -31,6 +32,7 @@ export function SectionDispatcher({ section, index }: { section: RichSection; in
     case 'timeline': return <Timeline section={section} isAlt={isAlt} />
     case 'callout': return <Callout section={section} />
     case 'architecture': return <Architecture section={section} isAlt={isAlt} />
+    case 'image-gallery': return <ImageGallery section={section} isAlt={isAlt} />
     default: {
       const _exhaustive: never = section
       void _exhaustive

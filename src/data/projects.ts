@@ -72,6 +72,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "High-visibility dashboard for CMO, CRO, and CEO that identified a critical gap in the Marketing SAL creation pipeline.",
     company: "Domo",
     featured: false,
+    cardStats: ["CEO/CMO/CRO Users", "Critical Gap Found"],
     detail: {
       tagline: "Executive funnel analysis that uncovered a critical pipeline gap.",
       metrics: [
@@ -100,6 +101,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "Consolidated dozens of disparate dashboards into a single cohesive analytics platform for the team.",
     company: "Domo",
     featured: false,
+    cardStats: ["Dozens Consolidated", "Unified Platform"],
     detail: {
       tagline: "One platform replacing dozens of dashboards for team performance management.",
       metrics: [
@@ -217,6 +219,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "Platform that scores every Gong call against STC criteria — AI provides baseline coverage for all calls while peer and leader reviews add targeted coaching depth.",
     company: "Domo",
     featured: false,
+    cardStats: ["196 Commits", "7,800 LOC", "3 Review Types"],
     detail: {
       tagline: "AI-driven call scoring and coaching at scale.",
       metrics: [
@@ -488,6 +491,17 @@ export const PROJECT_DATA: Project[] = [
             { icon: "\uD83D\uDCBE", title: "AppDB Write", description: "Saves review with scores & comments" },
             { icon: "\uD83D\uDCCA", title: "Dashboard", description: "AI reviews appear alongside human reviews" }
           ]
+        },
+        {
+          type: "image-gallery",
+          overline: "Screenshots",
+          title: "App Walkthrough",
+          subtitle: "Screenshots of the COMINT call review platform in action.",
+          images: [
+            { src: "screenshots/comint-queue.jpg", alt: "Call review queue showing available Gong calls with filters and metadata", caption: "Review Queue" },
+            { src: "screenshots/comint-scoring.jpg", alt: "9-category STC scoring form alongside the Gong call player", caption: "Scoring Interface" },
+            { src: "screenshots/comint-dashboard.jpg", alt: "Aggregated score dashboard with rep trends and KPI cards", caption: "Analytics Dashboard" }
+          ]
         }
       ]
     }
@@ -506,6 +520,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "Maps internal and external org hierarchies, engagement history, and buying committees to identify champions and decision-makers.",
     company: "Domo",
     featured: false,
+    cardStats: ["D3.js Org Charts", "3 Datasets", "2,100 LOC"],
     detail: {
       tagline: "Visual account intelligence for navigating complex organizations.",
       metrics: [
@@ -670,6 +685,16 @@ export const PROJECT_DATA: Project[] = [
             { value: "39", label: "Total Fields" },
             { value: "2", label: "D3.js Charts" }
           ]
+        },
+        {
+          type: "image-gallery",
+          overline: "Screenshots",
+          title: "App Walkthrough",
+          subtitle: "Command Structure in action \u2014 interactive D3.js org charts for account and revenue navigation.",
+          images: [
+            { src: "screenshots/command-account.jpg", alt: "Account hierarchy D3.js org chart showing the support team assigned to an account", caption: "Account Hierarchy View" },
+            { src: "screenshots/command-revenue.jpg", alt: "Revenue alignment showing three parallel chains: AE center, ADM left, SC right", caption: "Revenue Alignment View" }
+          ]
         }
       ]
     }
@@ -716,6 +741,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "Jupyter-based application aggregating AI updates, brand health, competitive positioning, customer intelligence, market share, market updates, and win/loss analysis for executive decision-making.",
     company: "Domo",
     featured: false,
+    cardStats: ["8 Intelligence Types", "7 Notebooks", "3,900 LOC"],
     detail: {
       tagline: "Executive-grade market intelligence in one place.",
       metrics: [
@@ -889,6 +915,16 @@ export const PROJECT_DATA: Project[] = [
             { value: "8", label: "Datasets" },
             { value: "7", label: "Notebooks" },
             { value: "8", label: "Modal Types" }
+          ]
+        },
+        {
+          type: "image-gallery",
+          overline: "Screenshots",
+          title: "App Walkthrough",
+          subtitle: "roosterIQ executive market intelligence \u2014 8 live reports, always current.",
+          images: [
+            { src: "screenshots/rooster-dashboard.jpg", alt: "8-card market intelligence dashboard with freshness badges and global search", caption: "Intelligence Dashboard" },
+            { src: "screenshots/rooster-modal.jpg", alt: "Report modal showing competitive positioning with clickable citations", caption: "Report Detail View" }
           ]
         }
       ]

@@ -223,6 +223,20 @@ export interface ArchitectureSection {
   after: ArchitectureAfter
 }
 
+export interface GalleryImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
+export interface ImageGallerySection {
+  type: 'image-gallery'
+  overline?: string
+  title?: string
+  subtitle?: string
+  images: GalleryImage[]
+}
+
 export type RichSection =
   | FeaturesSection
   | ThreeColSection
@@ -238,6 +252,7 @@ export type RichSection =
   | TimelineSection
   | CalloutSection
   | ArchitectureSection
+  | ImageGallerySection
 
 export interface RichDetail {
   subtitle?: string

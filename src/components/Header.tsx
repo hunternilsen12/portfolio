@@ -5,16 +5,18 @@ const NAV_LINKS = [
   { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-] as const
+  { href: '#/resume', label: 'Resume' },
+]
 
 export function Header({ activeSection, onNavClick }: { activeSection: string; onNavClick: (targetId: string) => void }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   function handleNav(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
     setMobileOpen(false)
-    const id = href.replace('#', '')
+    // Route links (e.g. #/resume) — let the browser navigate via HashRouter
+    if (href.startsWith('#/')) return
     e.preventDefault()
-    onNavClick(id)
+    onNavClick(href.replace('#', ''))
   }
 
   return (
@@ -35,6 +37,20 @@ export function Header({ activeSection, onNavClick }: { activeSection: string; o
               </a>
             ))}
           </nav>
+
+          <a
+            href="hunter-nilsen-resume.pdf"
+            download
+            className="header-resume-btn"
+            aria-label="Download resume PDF"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download CV
+          </a>
 
           <div className="header-social">
             <a href="mailto:hunter.nilsen@domo.com" aria-label="Email">
@@ -76,6 +92,9 @@ export function Header({ activeSection, onNavClick }: { activeSection: string; o
             {link.label}
           </a>
         ))}
+        <a href="hunter-nilsen-resume.pdf" download>
+          Download CV
+        </a>
       </nav>
     </header>
   )

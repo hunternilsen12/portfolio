@@ -461,7 +461,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
@@ -2053,6 +2053,373 @@ a:focus-visible {
 
   a { color: #000 !important; }
   a[href]::after { content: none; }
+}
+
+/* ── Scroll-Triggered Entrance Animations ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
+.fade-up.delay-4 { transition-delay: 0.4s; }
+
+/* ── Resume Download Button ── */
+.btn-resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+  padding: 9px 22px;
+  border-radius: var(--radius-full);
+  margin-top: 24px;
+  transition: background-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+.btn-resume-download:hover {
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+}
+.btn-resume-download svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Download Resume in Header ── */
+.header-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  transition: background-color 0.2s, color 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.header-resume-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+}
+.header-resume-btn svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Timeline Role Bullets ── */
+.timeline-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.timeline-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+.timeline-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.7;
+}
+
+/* ── Certifications ── */
+.cert-list {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+.cert-list-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+.cert-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.cert-item:last-child { border-bottom: none; }
+.cert-name {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.cert-date {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── School Meta ── */
+.school-meta {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: -6px;
+  margin-bottom: 16px;
+}
+
+/* ── Rich Detail: Image Gallery ── */
+.rich-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.rich-gallery-item {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.rich-gallery-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.rich-gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--color-surface);
+}
+.rich-gallery-caption {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: center;
+  font-family: var(--font-heading);
+}
+.rich-gallery-placeholder {
+  grid-column: 1 / -1;
+  padding: 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-border);
+}
+
+/* ── Resume Page ── */
+.resume-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+.resume-page main {
+  padding: 48px 0 80px;
+}
+.resume-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color 0.15s;
+}
+.resume-back:hover { color: var(--color-accent); text-decoration: none; }
+.resume-header-block {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--color-border);
+}
+.resume-header-block h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+.resume-contact a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+.resume-contact a:hover { color: var(--color-accent); }
+.resume-summary {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text);
+  max-width: 720px;
+}
+.resume-section {
+  margin-bottom: 40px;
+}
+.resume-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+.resume-role {
+  margin-bottom: 28px;
+}
+.resume-role-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.resume-role-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.resume-role-dates {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.resume-role-company {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+}
+.resume-bullets {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.resume-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+.resume-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.7;
+}
+.resume-edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+.resume-edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.resume-degree {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+}
+.resume-school {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+.resume-edu-date {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.resume-skill-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.resume-skill-label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+.resume-skill-value {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+.resume-cert-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+.resume-cert-row:last-child { border-bottom: none; }
+.resume-cert-name { font-weight: 600; color: var(--color-text); }
+.resume-cert-date { color: var(--color-text-muted); font-size: 13px; white-space: nowrap; }
+.resume-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
 }
 
 /* ── Reduced Motion ── */
