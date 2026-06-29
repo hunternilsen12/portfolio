@@ -17,7 +17,7 @@
 **Email:** hunternilsen12@gmail.com (personal) · hunter.nilsen@domo.com (work)
 **LinkedIn:** linkedin.com/in/hunternilsen
 **Phone:** (801) 995-8442
-**Portfolio:** hunternilsen12.github.io/portfolio/
+**Portfolio:** hunternilsen.com/
 
 ---
 

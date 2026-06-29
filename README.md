@@ -1,6 +1,6 @@
 # Portfolio — Hunter Nilsen
 
-Single-page portfolio at [hunternilsen12.github.io/portfolio](https://hunternilsen12.github.io/portfolio/).
+Single-page portfolio at [hunternilsen.com](https://hunternilsen.com/).
 
 Built with Vite 5 + React 18 + TypeScript (strict). Hash-routed, client-side only.
 
