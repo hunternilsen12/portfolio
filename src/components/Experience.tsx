@@ -30,9 +30,9 @@ export function Experience() {
                   <p className="timeline-title">Account Development Operations Analyst</p>
                   <p className="timeline-date">Feb 2025 – Dec 2025 · 11 mos</p>
                   <ul className="timeline-bullets">
-                    <li>Built automated workflow surfacing lapsed opportunities and account context, generating $500K in new revenue within 3 months</li>
-                    <li>Built Clay and Apollo.io-powered research workflows to identify prospect pain points and craft personalized outreach</li>
-                    <li>Enhanced team efficiency through AI-driven automation via prompt engineering</li>
+                    <li>Built automated workflow surfacing lapsed opportunities and historical account context, generating $500K in new revenue within 3 months</li>
+                    <li>Identified an unmapped attribution gap causing a sustained decline in marketing-sourced SALs — root-cause analysis that reframed the team's pipeline strategy</li>
+                    <li>Built Clay and Apollo.io-powered enrichment and outreach workflows with custom prompt engineering to surface prospect pain points at scale</li>
                   </ul>
                 </div>
               </div>

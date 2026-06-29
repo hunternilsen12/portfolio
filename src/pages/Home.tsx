@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Header } from '../components/Header'
+import { Sidebar } from '../components/Sidebar'
 import { About } from '../components/About'
 import { Experience } from '../components/Experience'
 import { Skills } from '../components/Skills'
@@ -31,9 +31,9 @@ export function Home() {
   }, [])
 
   return (
-    <>
-      <Header activeSection={activeSection} onNavClick={handleNavClick} />
-      <div id="view-home">
+    <div className="layout-shell">
+      <Sidebar activeSection={activeSection} onNavClick={handleNavClick} />
+      <div className="main-content">
         <main id="main">
           <About />
           <Experience />
@@ -51,8 +51,8 @@ export function Home() {
             </div>
           </section>
         </main>
+        <Footer />
       </div>
-      <Footer />
-    </>
+    </div>
   )
 }

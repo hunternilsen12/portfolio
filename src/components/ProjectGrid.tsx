@@ -16,7 +16,12 @@ export function ProjectGrid({ role, category }: ProjectGridProps) {
   const visible = useMemo(() => {
     return sorted.filter((p) => {
       const roleMatch = role === 'all' || p.role === role
-      const catMatch = category === 'all' || p.category === category
+      const catMatch =
+        category === 'all'
+          ? true
+          : category === 'in-progress'
+            ? p.status === 'building' || p.status === 'planned'
+            : p.category === category
       return roleMatch && catMatch
     })
   }, [sorted, role, category])

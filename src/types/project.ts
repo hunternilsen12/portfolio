@@ -1,5 +1,5 @@
 export type Role = 'revops' | 'adops'
-export type Category = 'automation' | 'dashboards' | 'enablement' | 'intelligence' | 'strategic'
+export type Category = 'automation' | 'dashboards' | 'enablement' | 'intelligence' | 'strategic' | 'fde' | 'revsuite'
 
 export interface Metric {
   value: string
@@ -260,6 +260,8 @@ export interface RichDetail {
   sections: RichSection[]
 }
 
+export type ProjectStatus = 'complete' | 'building' | 'planned'
+
 export interface Project {
   slug: string
   title: string
@@ -274,6 +276,7 @@ export interface Project {
   summary: string
   company: string
   featured: boolean
+  status?: ProjectStatus
   cardStats?: string[]
   detail: PlainDetail
   richDetail?: RichDetail

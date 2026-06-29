@@ -207,31 +207,31 @@ export const PROJECT_DATA: Project[] = [
   // ── Team Enablement Tools & Processes ──
   {
     slug: "call-review-coaching-app",
-    title: "Call Review App",
+    title: "RevRadio — STC Call Coaching",
     date: "2026-02",
     dateLabel: "Feb 2026",
     role: "revops",
     roleLabel: "RevOps Analyst",
-    category: "enablement",
-    section: "Team Enablement Tools & Processes",
-    tags: ["Enablement", "Intelligence"],
-    impactAreas: ["Sales Coaching", "Performance Improvement", "Skill Development"],
-    summary: "Platform that scores every Gong call against STC criteria — AI provides baseline coverage for all calls while peer and leader reviews add targeted coaching depth.",
+    category: "revsuite",
+    section: "RevSuite",
+    tags: ["Enablement", "Sales Coaching", "AI"],
+    impactAreas: ["Sales Coaching", "Rep Performance", "Methodology Enforcement"],
+    summary: "STC call scoring platform for the revenue team — every Gong call scored against a 9-category rubric by AI overnight, with peer and leader reviews layered on top for targeted coaching.",
     company: "Domo",
     featured: false,
-    cardStats: ["196 Commits", "7,800 LOC", "3 Review Types"],
+    cardStats: ["STC Framework", "AI Overnight Scoring", "9-Category Rubric"],
     detail: {
-      tagline: "AI-driven call scoring and coaching at scale.",
+      tagline: "AI-scored every call so coaching is driven by data, not who a manager happened to listen to.",
       metrics: [
-        { value: "Every Call", label: "AI-Scored" },
-        { value: "STC Criteria", label: "Evaluation Framework" },
-        { value: "Instant", label: "Performance Feedback" },
-        { value: "Anonymous", label: "Peer Reviews" }
+        { value: "Every Call", label: "AI-Scored Overnight" },
+        { value: "9 Categories", label: "STC Rubric" },
+        { value: "3 Review Types", label: "AI + Peer + Leader" },
+        { value: "Team Benchmarks", label: "Score Overlay" }
       ],
-      problem: "Sales coaching was inconsistent and relied on managers manually reviewing a small sample of calls, leaving most reps without regular feedback.",
-      solution: "Built an AI-powered coaching platform that automatically runs STC scores against every Gong call, provides instant performance feedback, and enables anonymous peer and leader reviews.",
-      building: "Details coming soon — describe the technology stack, tools used, and your specific contributions.",
-      results: "Enabled consistent, data-driven coaching across the entire team, accelerating skill development through instant feedback and anonymous review mechanisms."
+      problem: "Sales coaching was inconsistent — managers manually reviewed a small sample of calls, leaving most reps without regular structured feedback and no visibility into where the team was weakest.",
+      solution: "Built RevRadio (Vite 5 + React 18 + TypeScript + Tailwind + Zustand) — a call scoring platform where a Jupyter AI pipeline scores every Gong discovery call against the 9-category STC rubric overnight, with human peer and leader reviews layered on top. Dashboard shows rep-level and team-level score trends with benchmark overlays.",
+      building: "",
+      results: "Every discovery call now gets scored. Coaching is targeted to actual gap categories rather than gut feel, and reps can study top-performing calls across each STC dimension to self-correct."
     },
     richDetail: {
       subtitle: "Call Review app to score, track, and improve sales team\u2019s performance with the STC framework.",
@@ -520,7 +520,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "Maps internal and external org hierarchies, engagement history, and buying committees to identify champions and decision-makers.",
     company: "Domo",
     featured: false,
-    cardStats: ["D3.js Org Charts", "3 Datasets", "2,100 LOC"],
+    cardStats: ["Account Hierarchy", "Buying Committees", "Revenue Alignment"],
     detail: {
       tagline: "Visual account intelligence for navigating complex organizations.",
       metrics: [
@@ -701,30 +701,32 @@ export const PROJECT_DATA: Project[] = [
   },
   {
     slug: "new-adm-comp-plan",
-    title: "Inbound Comp Plan",
+    title: "ADM Commission Plan Design",
     date: "2026-02",
     dateLabel: "Feb 2026",
     role: "revops",
     roleLabel: "RevOps Analyst",
     category: "strategic",
     section: "Strategic Initiatives",
-    tags: ["Strategic Initiative"],
+    tags: ["Compensation", "RevOps", "Commission Design"],
     impactAreas: ["Team Motivation", "Financial Modeling", "Sales Incentives"],
-    summary: "Redesigned inbound compensation plan that increased incentives while maintaining the same cost percentage for the business.",
+    summary: "Designed and implemented the inbound ADM compensation plan — financial modeling and scenario analysis to increase rep incentives while keeping the program cost-neutral for the business.",
     company: "Domo",
     featured: false,
+    status: 'complete',
+    cardStats: ["Comp Plan Design", "Quota Modeling", "Cost-Neutral"],
     detail: {
       tagline: "Better incentives, same cost — a win-win comp redesign.",
       metrics: [
         { value: "Same Cost %", label: "For Business" },
         { value: "Increased", label: "ADM Incentives" },
-        { value: "Financial", label: "Modeling Done" },
+        { value: "Financial", label: "Modeling" },
         { value: "Scenario", label: "Analysis" }
       ],
-      problem: "The existing ADM compensation plan wasn't effectively motivating the team, but leadership needed any changes to remain cost-neutral.",
-      solution: "Redesigned the compensation structure using financial modeling and scenario analysis to increase ADM incentives while maintaining the same cost percentage for the business.",
-      building: "Details coming soon — describe the technology stack, tools used, and your specific contributions.",
-      results: "Delivered a compensation plan that increased ADM motivation and earning potential while remaining cost-neutral for the organization."
+      problem: "The existing ADM compensation plan wasn't effectively motivating the team, but leadership needed any changes to remain cost-neutral for the business.",
+      solution: "Redesigned the compensation structure using financial modeling and scenario analysis — defining quota targets, attainment tiers, and incentive thresholds that increased ADM earning potential without increasing cost percentage.",
+      building: "",
+      results: "Delivered a cost-neutral compensation redesign that increased ADM motivation and earning potential. Expanded ownership to the CSM commission structure in Q2 2026."
     }
   },
   {
@@ -741,7 +743,7 @@ export const PROJECT_DATA: Project[] = [
     summary: "Jupyter-based application aggregating AI updates, brand health, competitive positioning, customer intelligence, market share, market updates, and win/loss analysis for executive decision-making.",
     company: "Domo",
     featured: false,
-    cardStats: ["8 Intelligence Types", "7 Notebooks", "3,900 LOC"],
+    cardStats: ["8 Intelligence Types", "7 Notebooks", "C-Suite Audience"],
     detail: {
       tagline: "Executive-grade market intelligence in one place.",
       metrics: [
@@ -932,30 +934,31 @@ export const PROJECT_DATA: Project[] = [
   },
   {
     slug: "commission-calculator",
-    title: "Commission Calculator",
-    date: "2025-03",
-    dateLabel: "Mar 2025",
+    title: "ADM Commission Calculator",
+    date: "2026-05",
+    dateLabel: "May 2026",
     role: "adops",
     roleLabel: "AD Ops Analyst",
     category: "enablement",
     section: "Team Enablement Tools & Processes",
-    tags: ["Enablement"],
-    impactAreas: ["Team Motivation", "Compensation Transparency"],
-    summary: "Tool that models monthly earnings and commission scenarios, improving ADM transparency and motivation.",
+    tags: ["Enablement", "Compensation"],
+    impactAreas: ["Compensation Transparency", "Rep Motivation", "Comp Plan Modeling"],
+    summary: "Tier-based commission calculator for ADM and Inbound sales teams — ADM mode models S1/S2 payout tiers with configurable accelerators; Inbound mode provides progressive per-SQO rate ladders with role-based visibility.",
     company: "Domo",
     featured: false,
+    cardStats: ["S1/S2 Payout Tiers", "Inbound Mode", "Accelerator Modeling"],
     detail: {
-      tagline: "Transparent earnings modeling for the team.",
+      tagline: "Reps should always know exactly what they'll earn for the next deal they close.",
       metrics: [
-        { value: "Monthly", label: "Earnings Modeled" },
-        { value: "Scenarios", label: "Commission" },
-        { value: "Transparency", label: "Improved" },
-        { value: "Motivation", label: "Increased" }
+        { value: "S1/S2", label: "Payout Tiers" },
+        { value: "Inbound Mode", label: "SQO Rate Ladders" },
+        { value: "Configurable", label: "Accelerator Rates" },
+        { value: "localStorage", label: "Persisted Settings" }
       ],
-      problem: "ADMs couldn't easily understand or project their commission earnings, leading to frustration and reduced motivation.",
-      solution: "Built a commission calculator that lets ADMs model monthly earnings and run different commission scenarios to understand their compensation potential.",
-      building: "Details coming soon — describe the technology stack, tools used, and your specific contributions.",
-      results: "Improved ADM transparency and motivation by giving them clear visibility into how their performance translates to earnings."
+      problem: "ADMs and Inbound reps had no easy way to model their commission earnings — understanding how accelerators kicked in or what a given month's quota attainment would pay required manual spreadsheet math.",
+      solution: "Built a Vite + React + TypeScript commission calculator with two modes: ADM mode handles S1/S2 payout tier calculations with user-supplied accelerator rates (persisted to localStorage); Inbound mode provides per-SQO progressive rate ladders with role-based visibility controls.",
+      building: "",
+      results: "Reps can model any payout scenario in seconds. Reduced confusion around accelerator thresholds and improved transparency into how comp plan mechanics work across both inbound and ADM motions."
     }
   },
   {
@@ -1015,6 +1018,458 @@ export const PROJECT_DATA: Project[] = [
     }
   },
 
+  // ── FDE Customer Onsites ──
+  {
+    slug: "feld-entertainment-monster-jam",
+    title: "Monster Jam Jumbotron App",
+    date: "2026-03",
+    dateLabel: "Mar 2026",
+    role: "revops",
+    roleLabel: "FDE Onsite",
+    category: "fde",
+    section: "FDE Customer Onsites",
+    tags: ["FDE", "Live Events", "App Build"],
+    impactAreas: ["Live Event Operations", "Cost Elimination", "Customer Engagement"],
+    summary: "Live event scoring app for Feld Entertainment replacing Excel workbooks and 33 PowerPoint decks with a synchronized multi-view web app deployed at feldinc.domo.com.",
+    company: "Feld Entertainment",
+    featured: false,
+    cardStats: ["Live Event Scoring", "33 PPT Decks Replaced", "v0.4.6"],
+    detail: {
+      tagline: "One web app replacing Excel + 33 PowerPoint decks for live Monster Jam scoring.",
+      metrics: [
+        { value: "33", label: "Decks Replaced" },
+        { value: "~2s", label: "Score Sync" },
+        { value: "v0.4.6", label: "Production" },
+        { value: "Multi-View", label: "Architecture" }
+      ],
+      problem: "Feld Entertainment's Monster Jam scoring relied on coordinating Excel workbooks and 33 individual PowerPoint decks across multiple operators during live events — a fragile, error-prone system.",
+      building: '',
+      solution: "Built a multi-view live event scoring app using React 18, Vite, and Domo AppDB. Scorers enter results in real-time; the operator picks jumbotron screens with live previews; the in-arena display renders a chrome-free output. All views share AppDB collections with ~2 second sync.",
+      results: "Shipped to production at feldinc.domo.com. Eliminated event-day coordination complexity across 33 PowerPoint decks and multiple operators, replacing it with a single synchronized web app."
+    }
+  },
+  {
+    slug: "espn-contact-intelligence",
+    title: "ESPN Contact Intelligence",
+    date: "2026-04",
+    dateLabel: "Apr 2026",
+    role: "revops",
+    roleLabel: "FDE Onsite",
+    category: "fde",
+    section: "FDE Customer Onsites",
+    tags: ["FDE", "AI", "App Build"],
+    impactAreas: ["Contact Analytics", "Live Event Operations", "AI Decision Support"],
+    summary: "AI chat interface over ESPN's Zendesk contact dispositions and case notes, enabling support teams to query behavioral patterns and surface insights during live broadcasts.",
+    company: "ESPN",
+    featured: false,
+    status: 'building',
+    cardStats: ["AI Q&A", "Zendesk Data", "Live Event Alerting"],
+    detail: {
+      tagline: "Conversational AI over ESPN's Zendesk contact data for real-time support intelligence.",
+      metrics: [
+        { value: "AI Q&A", label: "Zendesk Contacts" },
+        { value: "15-min", label: "Event Alert Cadence" },
+        { value: "React 18", label: "Stack" },
+        { value: "Domo AI", label: "Endpoint" }
+      ],
+      problem: "ESPN support teams had no fast way to query contact disposition data and case notes for behavioral patterns — especially during live events when speed matters most.",
+      building: '',
+      solution: "Built a Domo AI-powered chat interface over ESPN's Zendesk contact and case-note data. Phase 2 adds a 15-minute alerting cadence during live events to surface spikes in contact volume by category.",
+      results: "FDE onsite delivering AI-powered contact intelligence to ESPN's support operations — enabling context-aware, data-backed decisions during live event broadcasts."
+    }
+  },
+  {
+    slug: "ocean-partners-trading-dashboard",
+    title: "Ocean Partners Trading Dashboard",
+    date: "2026-01",
+    dateLabel: "Jan 2026",
+    role: "revops",
+    roleLabel: "FDE Onsite",
+    category: "fde",
+    section: "FDE Customer Onsites",
+    tags: ["FDE", "Dashboard", "Finance"],
+    impactAreas: ["Trading Operations", "Counterparty Risk", "Executive Visibility"],
+    summary: "Executive commodities trading dashboard for Ocean Partners with three linked views covering metals, contracts, and counterparty exposure across five joined datasets.",
+    company: "Ocean Partners",
+    featured: false,
+    cardStats: ["5 Joined Datasets", "3 Linked Views", "Metals + Contracts"],
+    detail: {
+      tagline: "Traders see counterparty exposure across all metals on one screen.",
+      metrics: [
+        { value: "5", label: "Joined Datasets" },
+        { value: "3", label: "Linked Views" },
+        { value: "Metals + Contracts", label: "Coverage" },
+        { value: "LC Risk", label: "Tracked" }
+      ],
+      problem: "Ocean Partners traders were manually cross-referencing multiple spreadsheets to understand counterparty exposure across metals and contracts — a slow, error-prone process.",
+      building: '',
+      solution: "Built three linked dashboard views: a metals periodic-table grid with drill-down, a contracts list with per-contract detail and shipments, and a counterparties view showing M2M exposure, Sum of Finals, and LC risk — all over five joined datasets.",
+      results: "Replaced multi-sheet manual lookups with a unified trading dashboard, giving traders instant counterparty exposure visibility across all metals and contracts."
+    }
+  },
+
+  // ── RevSuite ──
+  {
+    slug: "rev-replay",
+    title: "RevReplay — Gong Replacement",
+    date: "2026-05",
+    dateLabel: "May 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "revsuite",
+    section: "RevSuite",
+    tags: ["AI", "Enablement", "Cost Savings"],
+    impactAreas: ["Cost Elimination", "Sales Coaching", "Call Intelligence"],
+    summary: "Microsoft Teams-based call recorder and AI analysis platform replacing a $350K/year Gong spend — with live AI chat, sentiment analysis, talk/listen metrics, and action item extraction.",
+    company: "Domo",
+    featured: false,
+    cardStats: ["$350K Saved", "Teams Recording", "AI Transcript Analysis"],
+    detail: {
+      tagline: "Full Gong replacement built in-house at a fraction of the cost.",
+      metrics: [
+        { value: "$350K", label: "Annual Savings" },
+        { value: "Teams", label: "Recording Platform" },
+        { value: "AI Analysis", label: "Every Call" },
+        { value: "Live Chat", label: "Transcript-Grounded" }
+      ],
+      problem: "The revenue team's $350K/year Gong subscription was up for renewal — and a full-featured replacement could be built in-house on Microsoft Teams infrastructure that was already licensed.",
+      building: '',
+      solution: "Built RevReplay using React 18, Vite 6, shadcn/ui, and Microsoft Graph API. Records and transcribes Teams calls, provides live AI chat grounded in the transcript, and delivers automated analysis: summary, sentiment, key moments, action items, and deterministic talk/listen ratios.",
+      results: "Eliminated $350K/year in Gong licensing while keeping the RevenueSuite ecosystem intact. Revenue team gets call recording, AI coaching, and analytics without the enterprise SaaS spend."
+    }
+  },
+  {
+    slug: "rev-radar-expand",
+    title: "RevRadar — AI Account Intelligence",
+    date: "2026-03",
+    dateLabel: "Mar 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "revsuite",
+    section: "RevSuite",
+    tags: ["AI", "Intelligence", "Enablement"],
+    impactAreas: ["Account Expansion", "Renewal Intelligence", "Rep Efficiency"],
+    summary: "AI-powered account intelligence for AEs, CSMs, and SEs — surfaces renewal urgency, expansion recommendations, battle cards, Gong call signals, and AI expansion guidance, all pre-computed overnight.",
+    company: "Domo",
+    featured: false,
+    cardStats: ["12 Jupyter Notebooks", "Overnight Pre-Compute", "L2b/L2e/L2a Tiers"],
+    detail: {
+      tagline: "Pre-computed overnight intelligence so reps walk into every call ready to expand.",
+      metrics: [
+        { value: "12", label: "Jupyter Notebooks" },
+        { value: "Overnight", label: "Pre-Computed" },
+        { value: "L2b/L2e/L2a", label: "Expansion Tiers" },
+        { value: "Instant Load", label: "On-Demand" }
+      ],
+      problem: "AEs, CSMs, and SEs were spending significant time manually researching accounts before expansion and renewal conversations — or worse, going in unprepared.",
+      building: '',
+      solution: "Built RevRadar with React 18, Vite 5, Tailwind 4, Zustand, and D3. A 12-notebook Jupyter pipeline (L0a→L2f) pre-computes pipeline coverage and forecasting intelligence overnight — ARR pacing vs. quota, renewal urgency scoring, Gong call signals, expansion recommendations, and battle cards grounded in consumption and engagement data.",
+      results: "AEs, CSMs, and SEs get instant-load account intelligence on demand — no manual research, no chasing Salesforce. Renewal urgency and expansion opportunities surface automatically every morning."
+    }
+  },
+  {
+    slug: "rev-routine",
+    title: "RevRoutine — Enablement Platform",
+    date: "2026-04",
+    dateLabel: "Apr 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "revsuite",
+    section: "RevSuite",
+    tags: ["AI", "Enablement", "Knowledge Base"],
+    impactAreas: ["Sales Enablement", "RFP Automation", "Ramp Acceleration"],
+    summary: "Revenue enablement platform combining a searchable knowledge base, AI co-pilot, RFP automation, structured learning modules, and asset generation — replacing scattered docs and static wikis.",
+    company: "Domo",
+    featured: false,
+    cardStats: ["AI Co-Pilot", "RFP Automation", "Learning Pathways"],
+    detail: {
+      tagline: "The knowledge hub the revenue team actually uses.",
+      metrics: [
+        { value: "AI Co-Pilot", label: "KB-Grounded" },
+        { value: "RFP", label: "Automation" },
+        { value: "Learning Pathways", label: "Coaching" },
+        { value: "Asset Gen", label: "One-Pagers & Battle Cards" }
+      ],
+      problem: "Revenue team knowledge lived in scattered Confluence pages, stale PDFs, and individual Slack threads — creating inconsistent answers, slow RFP responses, and long new-hire ramp times.",
+      building: '',
+      solution: "Built RevRoutine with React 18, Vite 5, Tailwind 4, Zustand, and @dnd-kit. Features: PDF/Word/markdown upload with full-text search, AI chat grounded in the knowledge base, RFP question extraction and answer drafting, drag-and-drop learning modules, learning pathways with coaching and rendered docs, and one-pager/battle card/FAQ asset generation.",
+      results: "Central hub for revenue team knowledge — reduces time-to-answer on product questions, automates RFP drafting, and standardizes new-hire ramp through structured learning pathways."
+    }
+  },
+
+  {
+    slug: "rev-suite-catalog",
+    title: "RevSuite — Tool Catalog & Org Hub",
+    date: "2026-04",
+    dateLabel: "Apr 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "revsuite",
+    section: "RevSuite",
+    tags: ["Enablement", "GTM", "Org Intelligence"],
+    impactAreas: ["Tool Discovery", "Org Navigation", "Revenue Enablement"],
+    summary: "The RevSuite home page — a catalog of every app and integration the revenue org uses, plus a D3.js Revenue Alignment org chart for instant account and rep lookup.",
+    company: "Domo",
+    featured: false,
+    cardStats: ["23 Tools Cataloged", "D3 Org Chart", "ServiceNow Access Requests"],
+    detail: {
+      tagline: "Every tool, every team member — one place.",
+      metrics: [
+        { value: "23", label: "Tools Cataloged" },
+        { value: "D3 Org Chart", label: "Revenue Alignment" },
+        { value: "v1.0.6", label: "Production" },
+        { value: "ServiceNow", label: "Access Request Links" }
+      ],
+      problem: "The revenue org had no single source of truth for which tools existed, how to get access, or who owned what accounts and roles.",
+      solution: "Built the RevSuite home (Vite 8 + React 19 + Tailwind 4 + D3) — a tool catalog listing 4 App Pages, 12 Internal Tools, and 7 External Tools with per-tool ServiceNow access-request tooltips, plus a Revenue Alignment modal with typeahead search and D3 org chart showing AE/ADM/SC chains.",
+      building: "",
+      results: "Replaced ad-hoc Slack pings for tool access with a self-serve catalog. The org chart eliminated the 'who owns this account?' lookup from manager escalation queues."
+    }
+  },
+  {
+    slug: "revops-report-library",
+    title: "RevOps Report Library",
+    date: "2026-05",
+    dateLabel: "May 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "dashboards",
+    section: "Dashboards & Data Infrastructure",
+    tags: ["Analysis", "RevOps", "Reporting"],
+    impactAreas: ["Pipeline Reporting", "Analytical Output", "Institutional Knowledge"],
+    summary: "Production report browser for the full RevOps analytical output — pipeline reports, deep dives, and rolling analyses stored in Domo FileSet and searchable across every document.",
+    company: "Domo",
+    featured: false,
+    cardStats: ["Full-Text Search", "FileSet Storage", "Pipeline + Deep Dive Reports"],
+    detail: {
+      tagline: "Every RevOps report, searchable from one place.",
+      metrics: [
+        { value: "Full-Text", label: "Search Across Reports" },
+        { value: "FileSet", label: "Domo Storage" },
+        { value: "Weekly + Rolling", label: "Report Types" },
+        { value: "CLI Upload", label: "push-report.mjs" }
+      ],
+      problem: "RevOps analytical output (weekly pipeline reports, 12-month deep dives, root-cause analyses) was scattered across Slack threads and Confluence pages with no unified search or browsable index.",
+      solution: "Built a production report library (Vite + React + TypeScript + Redux Toolkit + TanStack Query) backed by Domo FileSet storage — folder-tree navigation, full-text search with Control-F across all reports, GFM markdown rendering with per-document find bar and auto table-of-contents.",
+      building: "",
+      results: "All RevOps analytical output is now indexed and searchable. Leadership can find any historical pipeline report or deep dive without Slack archaeology."
+    }
+  },
+
+  // ── Additional Enablement ──
+  {
+    slug: "adm-daily-command-center",
+    title: "ADM Daily Command Center",
+    date: "2025-12",
+    dateLabel: "Dec 2025",
+    role: "adops",
+    roleLabel: "AD Ops Analyst",
+    category: "enablement",
+    section: "Team Enablement Tools & Processes",
+    tags: ["Enablement", "Dashboards"],
+    impactAreas: ["Daily Operations", "Pipeline Hygiene", "Rep Efficiency"],
+    summary: "RevOps operations hub for ADMs — pipeline hygiene at a glance, lead queue management, rep efficiency tracking, and prospecting funnel visibility across 5 connected datasets.",
+    company: "Domo",
+    featured: false,
+    cardStats: ["Pipeline Hygiene", "Rep Efficiency", "Daily RevOps Hub"],
+    detail: {
+      tagline: "One daily hub replacing two legacy tools for the ADM team.",
+      metrics: [
+        { value: "5", label: "Wired Datasets" },
+        { value: "2", label: "Legacy Pages Replaced" },
+        { value: "Daily", label: "Ops Hub" },
+        { value: "Real-Time", label: "Pipeline Hygiene" }
+      ],
+      problem: "ADMs were context-switching between multiple legacy Domo pages every morning — no single place to see today's queue, activity, prospecting status, and data health.",
+      building: '',
+      solution: "Built with Vite, React 18, Tailwind, TypeScript, and ryuu.js. Surfaces today's lead queue, weekly activity, prospecting bucket status (leads in cadence, at-risk leads, stalled deals, old MQLs, old opps), and data diagnostics — all from 5 connected datasets on one page.",
+      results: "Consolidated ADM daily workflow into a single page, eliminating context switching across legacy tools and giving managers instant visibility into rep activity and pipeline hygiene."
+    }
+  },
+  {
+    slug: "no-lead-left-behind",
+    title: "No Lead Left Behind",
+    date: "2026-06",
+    dateLabel: "Jun 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "automation",
+    section: "Automation & Workflows",
+    tags: ["Automation", "Operations", "GTM"],
+    impactAreas: ["Lead Hygiene", "Pipeline Recovery", "Revenue Operations"],
+    summary: "Automated system to surface and re-route 'limbo leads' — leads with blank status, system-user owners, or inactive owners — before they fall through the funnel unworked.",
+    company: "Domo",
+    featured: false,
+    status: 'building',
+    cardStats: ["Lead SLA Design", "4-hr Alert Threshold", "Funnel Recovery"],
+    detail: {
+      tagline: "Rescuing qualified leads before they disappear from the funnel.",
+      metrics: [
+        { value: "3", label: "Limbo Conditions" },
+        { value: "4-hr SLA", label: "Alert Threshold" },
+        { value: "Salesforce + Domo", label: "Stack" },
+        { value: "Auto-Alerts", label: "Slack & Email" }
+      ],
+      problem: "A meaningful number of qualified leads were sitting unworked in 'limbo' states — owned by system users, missing statuses, or assigned to inactive reps — invisible to the team until it was too late.",
+      building: '',
+      solution: "Building a Salesforce report surfacing leads meeting 3 limbo conditions (system-user owner, blank status, inactive owner), feeding into a Domo monitoring app with automated Slack/email alerts, SLA thresholds, and a re-routing workflow for ops.",
+      results: "In progress — active initiative to ensure no qualified lead sits unworked. Phase 1 complete; phase 2 (automated re-routing + Domo monitoring app) in build."
+    }
+  },
+
+  {
+    slug: "rev-research",
+    title: "RevResearch — Pre-Call AI Briefs",
+    date: "2026-06",
+    dateLabel: "Jun 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "automation",
+    section: "Automation & Workflows",
+    tags: ["AI", "Automation", "Enablement"],
+    impactAreas: ["Rep Preparation", "Meeting Effectiveness", "Pipeline Intelligence"],
+    summary: "Daily AI research briefs delivered to AEs before every meeting — reads Outlook calendar, pulls Gong + Salesforce context, and emails a tailored brief before the call starts.",
+    company: "Domo",
+    featured: false,
+    status: 'building',
+    cardStats: ["Daily AI Briefs", "Calendar-Triggered", "Gong + Salesforce Context"],
+    detail: {
+      tagline: "Every rep walks into every call prepared.",
+      metrics: [
+        { value: "Daily 7am MT", label: "Automation Trigger" },
+        { value: "Per-Meeting", label: "AI Brief" },
+        { value: "Gong + Salesforce", label: "Context Sources" },
+        { value: "Email Delivery", label: "To Rep Before Start" }
+      ],
+      problem: "Reps either spent 15–20 minutes manually researching accounts before calls or went in cold — both outcomes hurt conversion and coaching.",
+      solution: "Building a Domo Automation → Code Engine pipeline that reads Outlook calendars daily at 7am MT, generates AI research briefs per meeting (Gong call history + Salesforce opportunity + ADM connect notes), and emails each rep their brief before their first call.",
+      building: "",
+      results: "In progress — end-to-end pipeline built, pending dataset wiring and Domo Automation workflow creation."
+    }
+  },
+  {
+    slug: "brother-bear",
+    title: "AE Results-vs-Effort Quadrant",
+    date: "2026-04",
+    dateLabel: "Apr 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "dashboards",
+    section: "Dashboards & Data Infrastructure",
+    tags: ["Analysis", "RevOps", "Performance"],
+    impactAreas: ["Rep Performance Management", "Coaching Prioritization", "Resource Allocation"],
+    summary: "AE performance quadrant mapping results (pipeline contribution, wins) against effort (activity volume, meeting counts) — surfaces which reps are high-effort/low-output for targeted coaching intervention.",
+    company: "Domo",
+    featured: false,
+    status: 'building',
+    cardStats: ["Results vs. Effort", "AE Quadrant View", "Coaching Prioritization"],
+    detail: {
+      tagline: "Not all reps are struggling for the same reason — this shows the difference.",
+      metrics: [
+        { value: "4-Quadrant", label: "AE Segmentation" },
+        { value: "Results + Effort", label: "Dual-Axis View" },
+        { value: "Coaching", label: "Prioritization" },
+        { value: "React + Vite", label: "Domo App" }
+      ],
+      problem: "Sales leadership was applying the same coaching approach to all underperforming reps — not distinguishing between reps who aren't working enough vs. reps working hard but converting poorly.",
+      solution: "Building a React/Vite Domo app that plots AEs on a 2x2 quadrant — results (pipeline sourced, SALs, wins) on one axis, effort (activities, meetings, outbound volume) on the other — so leadership can direct coaching resources where each rep actually needs it.",
+      building: "",
+      results: "In progress — quadrant model defined, app in development."
+    }
+  },
+
+  // ── Skills in Progress ──
+  {
+    slug: "csm-commission-framework",
+    title: "CSM Commission Framework",
+    date: "2026-06",
+    dateLabel: "Jun 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "strategic",
+    section: "Strategic Initiatives",
+    tags: ["Compensation", "RevOps", "CSM"],
+    impactAreas: ["Comp Design", "NRR Alignment", "CS Operations"],
+    summary: "Designing the commission plan structure for the Customer Success team — aligning payout mechanics to retention, expansion, and NRR targets.",
+    company: "Domo",
+    featured: false,
+    status: 'building',
+    cardStats: ["CSM Team", "NRR-Linked", "Retention + Expansion"],
+    detail: {
+      tagline: "Extending commission design ownership from ADM to Customer Success.",
+      metrics: [
+        { value: "CSM Team", label: "Scope" },
+        { value: "NRR", label: "Primary KPI" },
+        { value: "Retention + Expansion", label: "Mechanics" },
+        { value: "In Progress", label: "Status" }
+      ],
+      problem: "The CS team's compensation wasn't tightly aligned to the renewal and expansion outcomes the business needed, creating misaligned incentives.",
+      solution: "Building the compensation framework for the CS team — defining quota targets, attainment tiers, and payout mechanics tied to retention rates, expansion ARR, and NRR.",
+      building: "",
+      results: "In progress — expanding commission design ownership built with the ADM comp plan into the Customer Success organization."
+    }
+  },
+  {
+    slug: "forecasting-accuracy-framework",
+    title: "Forecasting Accuracy Framework",
+    date: "2026-06",
+    dateLabel: "Jun 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "dashboards",
+    section: "Dashboards & Data Infrastructure",
+    tags: ["Forecasting", "Pipeline", "RevOps"],
+    impactAreas: ["Revenue Forecasting", "Pipeline Accuracy", "Executive Reporting"],
+    summary: "Adding a forecast vs. actuals variance layer to the weekly CRO/CMO pipeline report — tracking closed-won against what was in late-stage pipeline 4 weeks prior to own forecast accuracy as a KPI.",
+    company: "Domo",
+    featured: false,
+    status: 'building',
+    cardStats: ["Forecast vs. Actuals", "4-Week Lookback", "CRO/CMO"],
+    detail: {
+      tagline: "Owning the forecast number, not just the pipeline report.",
+      metrics: [
+        { value: "Forecast vs. Actuals", label: "KPI Owned" },
+        { value: "4-Week", label: "Lookback Window" },
+        { value: "Weekly", label: "Cadence" },
+        { value: "CRO + CMO", label: "Stakeholders" }
+      ],
+      problem: "The weekly pipeline report surfaces the data the CRO and CMO use to forecast — but forecast accuracy itself wasn't tracked as a personal KPI, leaving variance analysis to gut feel.",
+      solution: "Extending the weekly pipeline report to pull closed-won revenue against what was in late-stage pipeline 4 weeks prior — surfacing forecast variance each week and building a methodology for accuracy ownership over time.",
+      building: "",
+      results: "In progress — first forecast vs. actuals comparison layer targeted for Q3 2026. Will establish a documented accuracy baseline and methodology."
+    }
+  },
+  {
+    slug: "hubspot-certification-track",
+    title: "HubSpot Platform Certification",
+    date: "2026-07",
+    dateLabel: "Jul 2026",
+    role: "revops",
+    roleLabel: "RevOps",
+    category: "enablement",
+    section: "Skills in Progress",
+    tags: ["HubSpot", "CRM Admin", "Certification"],
+    impactAreas: ["CRM Administration", "Lifecycle Automation", "GTM Stack Depth"],
+    summary: "Earning HubSpot Operations Hub, CRM, and Marketing Hub certifications to build hands-on admin depth alongside existing Salesforce and Domo experience.",
+    company: "Domo",
+    featured: false,
+    status: 'planned',
+    cardStats: ["Operations Hub", "CRM + Marketing Hub", "HubSpot Academy"],
+    detail: {
+      tagline: "Building the CRM admin depth modern RevOps roles require.",
+      metrics: [
+        { value: "Operations Hub", label: "Starting With" },
+        { value: "CRM + Marketing", label: "Next Certs" },
+        { value: "Free", label: "HubSpot Academy" },
+        { value: "3–4 hrs", label: "Per Cert" }
+      ],
+      problem: "Most RevOps Manager roles require HubSpot admin experience — custom objects, lifecycle stages, workflow automation, and lead scoring. Current stack is Salesforce + Domo.",
+      solution: "Completing HubSpot Academy certifications starting with Operations Hub (most relevant for RevOps workflow and lifecycle automation), then CRM Admin, then Marketing Hub.",
+      building: "",
+      results: "Not yet started — beginning July 2026. Certifications appear on LinkedIn and are directly cited in RevOps job descriptions."
+    }
+  },
+
   // ── Strategic Initiatives ──
   {
     slug: "free-trial-growth-initiative",
@@ -1027,7 +1482,7 @@ export const PROJECT_DATA: Project[] = [
     section: "Strategic Initiatives",
     tags: ["Strategic Initiative"],
     impactAreas: ["Funnel Optimization", "Revenue Growth", "Product Intelligence"],
-    summary: "Led a cross-functional transformation of the trial experience, dramatically improving onboarding scheduling, attendance, and conversion rates.",
+    summary: "Led funnel optimization initiative improving MQL→SAL conversion 27–32% — redesigned the trial lifecycle end-to-end, cutting time-to-onboarding from 14 to 4 days and doubling attendance rates.",
     company: "Domo",
     featured: false,
     cardStats: ["↑89% Scheduling", "2× Attendance", "27-32% MQL→SAL", "14→4 Days"],
@@ -1043,6 +1498,66 @@ export const PROJECT_DATA: Project[] = [
       solution: "Led a cross-functional initiative to transform the entire trial lifecycle, creating end-to-end visibility and automating Gong transcript analysis to surface recurring objections.",
       building: "Details coming soon — describe the technology stack, tools used, and your specific contributions.",
       results: "Onboarding scheduling improved 89% (8.2% to 15.5%), attendance doubled to 11-12%, MQL-to-SAL conversion sustained at 27-32%, and time-to-onboarding dropped from 14 to 4 days. Two of the best months since the Freemium drop occurred after these changes."
+    }
+  },
+  {
+    slug: "hubspot-revops-build",
+    title: "HubSpot RevOps Build",
+    date: "2026-07",
+    dateLabel: "Jul 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "enablement",
+    section: "Team Enablement Tools & Processes",
+    tags: ["HubSpot", "CRM Admin", "Lifecycle Automation"],
+    impactAreas: ["CRM Architecture", "Lead Routing", "Funnel Automation"],
+    summary: "End-to-end HubSpot RevOps build in a sandbox environment — pipeline stage design, MQL→SQL→SAL lifecycle automation, round-robin lead routing workflow, and an executive funnel metrics dashboard.",
+    company: "Domo",
+    featured: false,
+    status: 'building',
+    cardStats: ["Pipeline Stages", "Lifecycle Automation", "Lead Routing"],
+    detail: {
+      tagline: "Building the HubSpot foundation I'd deploy in any RevOps role.",
+      metrics: [
+        { value: "4 Stages", label: "Pipeline Design" },
+        { value: "MQL→SAL", label: "Lifecycle Logic" },
+        { value: "Round-Robin", label: "Lead Routing" },
+        { value: "Funnel", label: "Dashboard" }
+      ],
+      problem: "HubSpot is the CRM of choice at several target companies. Rather than learn it on the job, I'm building a production-quality RevOps setup in a sandbox to validate and demonstrate my implementation approach.",
+      solution: "Configuring a full HubSpot instance: deal pipeline stages, contact lifecycle stages (MQL→SQL→SAL→Customer), lead routing workflows with round-robin assignment, property-based enrollment triggers, and a funnel analytics dashboard tracking conversion rates at each stage.",
+      building: "In progress — completing alongside HubSpot Revenue Operations certification.",
+      results: "In progress — screenshots and configuration details will be documented on completion."
+    }
+  },
+  {
+    slug: "territory-framework",
+    title: "Territory Planning Framework",
+    date: "2026-07",
+    dateLabel: "Jul 2026",
+    role: "revops",
+    roleLabel: "RevOps Analyst",
+    category: "strategic",
+    section: "Strategic Initiatives",
+    tags: ["Territory Planning", "RevOps", "Account Segmentation"],
+    impactAreas: ["Territory Design", "Rep Assignment", "Pipeline Coverage"],
+    summary: "Account segmentation and rep assignment framework for a SaaS GTM motion — ICP definition, three-tier account model, rep capacity modeling, and a quarterly rebalance cadence built around real Domo ADM context.",
+    company: "Domo",
+    featured: false,
+    status: 'planned',
+    cardStats: ["ICP Tiering", "Rep Assignment Logic", "Quarterly Rebalance"],
+    detail: {
+      tagline: "Territory design as a system, not a spreadsheet.",
+      metrics: [
+        { value: "3 Tiers", label: "Account Model" },
+        { value: "ICP-Based", label: "Segmentation" },
+        { value: "Quarterly", label: "Rebalance Cadence" },
+        { value: "Capacity", label: "Modeling" }
+      ],
+      problem: "Territory planning is a core RevOps competency that most analysts never formally document — accounts get assigned without a clear methodology, leading to imbalanced workloads and missed whitespace.",
+      solution: "Building a territory framework grounded in Domo's ADM motion: ICP definition by vertical + size band, Tier 1/2/3 account model by revenue potential × urgency, rep assignment logic (specialization vs. round-robin), capacity modeling, and quarterly rebalance triggers.",
+      building: "In progress — framework document and Domo dashboard companion in development.",
+      results: "Not yet complete — framework methodology and tooling will be documented on completion."
     }
   }
 ];

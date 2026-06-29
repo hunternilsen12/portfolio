@@ -1,7 +1,7 @@
 import type { Role, Category } from '../types/project'
 
 export type RoleFilter = Role | 'all'
-export type CategoryFilter = Category | 'all'
+export type CategoryFilter = Category | 'all' | 'in-progress'
 
 const ROLE_OPTIONS: { value: RoleFilter; label: string }[] = [
   { value: 'all', label: 'All' },
@@ -11,6 +11,9 @@ const ROLE_OPTIONS: { value: RoleFilter; label: string }[] = [
 
 const CATEGORY_OPTIONS: { value: CategoryFilter; label: string }[] = [
   { value: 'all', label: 'All' },
+  { value: 'in-progress', label: 'In Progress' },
+  { value: 'fde', label: 'FDE Onsites' },
+  { value: 'revsuite', label: 'RevSuite' },
   { value: 'automation', label: 'Automation' },
   { value: 'dashboards', label: 'Dashboards' },
   { value: 'enablement', label: 'Enablement' },

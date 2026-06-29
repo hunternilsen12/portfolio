@@ -1,9 +1,12 @@
 import type { Project } from '../types/project'
 
 export function ProjectCard({ project }: { project: Project }) {
+  const isPlanned = project.status === 'planned'
+  const isBuilding = project.status === 'building'
+
   return (
     <article
-      className="project-card"
+      className={'project-card' + (isPlanned ? ' planned' : '')}
       data-role={project.role}
       data-category={project.category}
       data-slug={project.slug}
@@ -22,6 +25,8 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="card-tags">
           <span className={'role-badge ' + project.role}>{project.roleLabel}</span>
+          {isBuilding && <span className="project-status-badge building">In Progress</span>}
+          {isPlanned && <span className="project-status-badge planned">Coming Soon</span>}
           {project.tags.map((tag) => (
             <span key={tag} className="category-tag">{tag}</span>
           ))}

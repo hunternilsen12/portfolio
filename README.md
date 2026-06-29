@@ -1,6 +1,6 @@
 # Portfolio — Hunter Nilsen
 
-Single-page portfolio at [hunternilsen.github.io/portfolio-landing](https://hunternilsen.github.io/portfolio-landing/).
+Single-page portfolio at [hunternilsen12.github.io/portfolio-landing](https://hunternilsen12.github.io/portfolio-landing/).
 
 Built with Vite 5 + React 18 + TypeScript (strict). Hash-routed, client-side only.
 
