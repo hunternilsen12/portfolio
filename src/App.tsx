@@ -5,8 +5,6 @@ import { RouteAnnouncer } from './components/common/RouteAnnouncer'
 import { Home } from './pages/Home'
 import { ProjectDetail } from './pages/ProjectDetail'
 import { ResumePage } from './pages/ResumePage'
-import { ForCompanyPage } from './pages/ForCompanyPage'
-
 export default function App() {
   return (
     <HashRouter>
@@ -17,7 +15,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/resume" element={<ResumePage />} />
-        <Route path="/for/:company" element={<ForCompanyPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </HashRouter>
