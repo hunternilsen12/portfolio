@@ -1,12 +1,12 @@
 # Portfolio — Hunter Nilsen
 
 ## Overview
-Single-page portfolio site for Hunter Nilsen. React 19 + TypeScript (strict) + Vite 8, hash-based routing, deployed to GitHub Pages at `hunternilsen12.github.io/portfolio-landing/`.
+Single-page portfolio site for Hunter Nilsen. React 19 + TypeScript (strict) + Vite 8, hash-based routing, deployed to GitHub Pages at `hunternilsen12.github.io/portfolio/`.
 
 Ported from vanilla HTML/CSS/JS on 2026-04-22. Sidebar layout overhaul (v2) completed 2026-06-28.
 
 ## Stack
-- **Build:** Vite 8, `base: './'` (relative asset paths — works under the `/portfolio-landing/` Pages subpath)
+- **Build:** Vite 8, `base: './'` (relative asset paths — works under the `/portfolio/` Pages subpath)
 - **Framework:** React 19 + TypeScript strict; functional components only
 - **Router:** `react-router-dom` HashRouter — routes `/`, `/project/:slug`, `/resume`
 - **Styling:** Plain CSS in `src/styles.css`, imported once in `main.tsx`. **Do not migrate to Tailwind or CSS Modules** without a separate discussion.
@@ -123,7 +123,7 @@ Edit `src/styles.css` directly. Do not inline Tailwind utilities.
 - `npm run deploy:pages` — Build and push `dist/` to the `gh-pages` branch
 
 ## Deployment — GitHub Pages
-The live site is `https://hunternilsen12.github.io/portfolio-landing/`.
+The live site is `https://hunternilsen12.github.io/portfolio/`.
 
 One command: `npm run deploy:pages`. The `gh-pages` package builds, then force-pushes `dist/` to `origin/gh-pages`.
 
