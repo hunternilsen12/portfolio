@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Sidebar } from '../components/Sidebar'
+import { TopNav } from '../components/TopNav'
 import { Footer } from '../components/Footer'
 import { announceRoute } from '../components/common/RouteAnnouncer'
 
@@ -13,7 +13,7 @@ export function ResumePage() {
 
   return (
     <div className="layout-shell">
-      <Sidebar activeSection="/resume" onNavClick={() => {}} />
+      <TopNav />
       <div className="main-content">
         <main id="main" className="container" style={{ paddingTop: '48px', paddingBottom: '80px' }}>
           <a href="#/" className="resume-back">

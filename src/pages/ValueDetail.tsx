@@ -1,4 +1,5 @@
 import type { Project, ImageGallerySection } from '../types/project'
+import { TopNav } from '../components/TopNav'
 
 function extractGallery(project: Project): ImageGallerySection | null {
   const section = project.richDetail?.sections.find(s => s.type === 'image-gallery')
@@ -16,7 +17,8 @@ export function ValueDetail({ project, prev, next }: ValueDetailProps) {
   const { detail } = project
 
   return (
-    <div className="value-detail">
+    <div className="value-detail" style={{ paddingTop: 'var(--nav-height)' }}>
+      <TopNav />
       <div className="container">
         <a href="#/" className="detail-back">
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
