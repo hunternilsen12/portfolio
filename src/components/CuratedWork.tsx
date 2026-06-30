@@ -1,15 +1,17 @@
 import { PROJECT_DATA } from '../data/projects'
 
 const CURATED_SLUGS = [
-  'rev-suite-catalog',
-  'rev-research',
+  'revops-report-library',
   'rev-radar-expand',
-  'clay-old-opportunity-workflow',
-  'no-lead-left-behind',
-  'new-adm-comp-plan',
-  'adm-daily-command-center',
   'free-trial-growth-initiative',
+  'new-adm-comp-plan',
+  'clay-old-opportunity-workflow',
+  'call-review-coaching-app',
+  'rev-routine',
+  'brother-bear',
 ]
+
+const FDE_CUSTOMERS = ['Feld Entertainment', 'ESPN', 'Ocean Partners']
 
 export function CuratedWork() {
   const projects = CURATED_SLUGS
@@ -22,43 +24,39 @@ export function CuratedWork() {
         <div className="work-section-header">
           <div>
             <p className="work-section-label">Selected Work</p>
-            <h2 className="work-section-title">What I've built.</h2>
+            <h2 className="work-section-title">Top Projects</h2>
           </div>
-          <a href="#/resume" className="work-resume-link">
-            Full resume →
-          </a>
         </div>
 
         <div className="editorial-list">
+          {/* FDE AI Sprints — combined hardcoded entry */}
+          <div className="editorial-row">
+            <div className="editorial-body">
+              <h3 className="editorial-title">FDE AI Solution Sprints</h3>
+              <p className="editorial-summary">
+                Three enterprise AI onsites delivering production Domo solutions including AI-powered account intelligence, contact enrichment, and trading analytics. Generated $1.2M in measurable customer upsell.
+              </p>
+              <div className="editorial-customers">
+                {FDE_CUSTOMERS.map((name) => (
+                  <span key={name} className="editorial-customer-chip">{name}</span>
+                ))}
+              </div>
+              <p className="editorial-value">$1.2M · Customer Upsell</p>
+            </div>
+          </div>
+
           {projects.map((project) => (
-            <a
-              key={project.slug}
-              href={`#/project/${project.slug}`}
-              className="editorial-row"
-            >
-              <span className="editorial-date">{project.dateLabel}</span>
+            <div key={project.slug} className="editorial-row">
               <div className="editorial-body">
                 <h3 className="editorial-title">{project.title}</h3>
                 <p className="editorial-summary">{project.summary}</p>
-                {project.cardStats && project.cardStats[0] && (
-                  <span className="editorial-stat">{project.cardStats[0]}</span>
+                {project.detail.metrics[0] && (
+                  <p className="editorial-value">
+                    {project.detail.metrics[0].value} · {project.detail.metrics[0].label}
+                  </p>
                 )}
               </div>
-              <svg
-                className="editorial-arrow"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                width="20"
-                height="20"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
+            </div>
           ))}
         </div>
       </div>

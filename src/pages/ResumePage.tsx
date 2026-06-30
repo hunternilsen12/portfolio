@@ -6,8 +6,8 @@ import { announceRoute } from '../components/common/RouteAnnouncer'
 export function ResumePage() {
   useEffect(() => {
     const prev = document.title
-    document.title = 'Resume — Hunter Nilsen'
-    announceRoute('Resume — Hunter Nilsen')
+    document.title = 'Resume · Hunter Nilsen'
+    announceRoute('Resume · Hunter Nilsen')
     return () => { document.title = prev }
   }, [])
 
@@ -32,7 +32,7 @@ export function ResumePage() {
               <a href="https://linkedin.com/in/hunternilsen" target="_blank" rel="noopener noreferrer">linkedin.com/in/hunternilsen</a>
             </div>
             <p className="resume-summary">
-              Revenue Operations professional who builds what others describe. At Domo, I own the CRO/CMO pipeline reporting relationship, designed the commission structure for the ADM team, and engineered the RevenueSuite — a set of internal GTM tools that replaced $350K in enterprise SaaS spend. I use Claude Code daily to build production AI workflows, agentic pipelines, and the data systems that make RevOps possible at scale.
+              At Domo, I build the systems the revenue org runs on: pipeline reporting, AI tools, agentic workflows, and GTM data products that span the full sales motion from paid spend to close. My work sits at the intersection of RevOps and applied AI engineering. Claude Code, agentic pipelines, RAG, and MCP tool use paired with attribution modeling, lead lifecycle design, and comp design.
             </p>
             <div className="resume-actions">
               <a href="hunter-nilsen-resume.pdf" download className="btn-resume-download">
@@ -54,13 +54,12 @@ export function ResumePage() {
                 <span className="resume-role-title">RevOps Analyst &amp; AI Engineer</span>
                 <span className="resume-role-dates">Dec 2025 – Present</span>
               </div>
-              <p className="resume-role-company">Domo — American Fork, UT</p>
+              <p className="resume-role-company">Domo · American Fork, UT</p>
               <ul className="resume-bullets">
-                <li>Led 3 Forward Deployed Engineering onsites with Feld Entertainment, ESPN, and Ocean Partners, delivering AI-powered Domo solutions that generated $1.2M in upsell value</li>
-                <li>Own weekly pipeline reporting to the CRO and CMO — MQL→SAL conversion trends, rep efficiency, velocity metrics, and funnel attribution — driving operational decisions across Sales and Marketing</li>
-                <li>Own and maintain the RevenueSuite — internal GTM tools (RevReplay, RevRadar, RevRoutine) built to replace $350K+ in enterprise SaaS spend, used daily by the revenue org</li>
-                <li>Define lifecycle stages, SLA thresholds, and attribution frameworks across the full sales motion from MQL through Closed Won</li>
-                <li>Designed the inbound ADM commission plan — quota structure, S1/S2 attainment tiers, accelerator mechanics, and cost-neutral financial modeling adopted by Sales leadership</li>
+                <li>Led first 3 FDE onsites (Feld Entertainment, ESPN, Ocean Partners), delivering AI solutions that generated $1.2M in immediate pipeline</li>
+                <li>Run CRO/CMO pipeline reporting: MQL conversion trends, pipeline hygiene, Google keyword performance, and sales efficiency to guide operational decisions across Sales and Marketing</li>
+                <li>Developed and own a suite of internal AI-powered revenue tools including pipeline visibility and intelligence, call review and coaching, sales roleplay, and pre-call briefing used daily by the revenue org</li>
+                <li>Designed and implemented a new BDR comp plan including financial modeling and cost-neutral scenario analysis to increase rep incentives without adding program cost</li>
               </ul>
             </div>
 
@@ -69,11 +68,12 @@ export function ResumePage() {
                 <span className="resume-role-title">Account Development Operations Analyst</span>
                 <span className="resume-role-dates">Feb 2025 – Dec 2025</span>
               </div>
-              <p className="resume-role-company">Domo — American Fork, UT</p>
+              <p className="resume-role-company">Domo · American Fork, UT</p>
               <ul className="resume-bullets">
-                <li>Built automated workflow to surface lapsed opportunities and historical account context for ADMs, generating $500K in new revenue within 3 months</li>
-                <li>Conducted root-cause analysis into a persistent decline in marketing-sourced SALs, identifying an unmapped structural attribution gap that reframed the team's pipeline strategy</li>
-                <li>Built Clay and Apollo.io-powered research workflows with custom prompt engineering to surface prospect pain points and generate personalized outreach at scale</li>
+                <li>Built automated workflows to surface old opportunities and historical account context, generating $500K in new logo revenue within 3 months</li>
+                <li>Led free trial redesign that improved MQL to SAL conversion 32%, cut time-to-first-onboarding 71%, and doubled attendance rates through end-to-end lifecycle restructuring</li>
+                <li>Conducted analysis into a persistent decline in marketing-sourced SALs. Identified that a 5x reduction in outbound BDR headcount had cut the inbound lead seeding effect, a structural attribution gap that reframed the team's pipeline strategy</li>
+                <li>Built Clay and Apollo.io workflows with custom prompt engineering to surface prospect pain points and generate personalized outreach at scale, reducing manual research time per rep</li>
               </ul>
             </div>
 
@@ -82,9 +82,10 @@ export function ResumePage() {
                 <span className="resume-role-title">Account Development Manager</span>
                 <span className="resume-role-dates">Apr 2024 – Jan 2025</span>
               </div>
-              <p className="resume-role-company">Domo — American Fork, UT</p>
+              <p className="resume-role-company">Domo · American Fork, UT</p>
               <ul className="resume-bullets">
-                <li>Sourced 16+ qualified opportunities over 8 months, contributing net new ARR pipeline through proactive discovery and cross-functional account coordination</li>
+                <li>Partnered with Account Executives and CSMs to uncover upsell opportunities across the customer base through strategic account reviews, new user engagement campaigns, and executive-level customer events</li>
+                <li>Sourced qualified opportunities contributing net new ARR pipeline through proactive discovery and cross-functional account coordination</li>
               </ul>
             </div>
           </div>

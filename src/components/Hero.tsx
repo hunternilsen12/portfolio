@@ -4,53 +4,20 @@ export function Hero() {
   return (
     <section className="hero">
       <div className="hero-inner">
-        <div className="hero-left">
-          <p className="hero-label">Hunter Nilsen · Revenue Operations & AI Engineering</p>
-          <h1 className="hero-headline">
-            I build RevOps systems that <em>actually</em> get used.
-          </h1>
-          <p className="hero-body">
-            Most RevOps teams describe what they want. I build it. At Domo, I own the CRO and CMO
-            reporting relationship, engineered $350K in tool replacement, and designed the commission
-            plan — all with Claude Code running daily in production.
-          </p>
-          <div className="hero-byline">
-            <img src={headshotUrl} alt="Hunter Nilsen" className="hero-avatar" />
-            <div className="hero-byline-text">
-              <div className="hero-byline-name">Hunter Nilsen</div>
-              <div>RevOps & AI Engineer · Domo</div>
-            </div>
-          </div>
-          <div className="hero-actions">
-            <a href="#projects" className="hero-cta" onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-              View Work ↓
-            </a>
-            <a
-              href="https://linkedin.com/in/hunternilsen"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-linkedin"
-            >
-              LinkedIn →
-            </a>
-          </div>
-        </div>
-
-        <div className="hero-metrics">
-          <div className="hero-metric">
-            <div className="hero-metric-value">$350K</div>
-            <div className="hero-metric-label">SaaS Replaced</div>
-          </div>
-          <div className="hero-metric">
-            <div className="hero-metric-value">$1.2M</div>
-            <div className="hero-metric-label">Upsell Value</div>
-          </div>
-          <div className="hero-metric">
-            <div className="hero-metric-value">27–32%</div>
-            <div className="hero-metric-label">MQL→SAL Lift</div>
+        <h1 className="hero-headline">
+          I'll own the pipeline and build the AI that runs it.
+        </h1>
+        <ul className="hero-bullets">
+          <li>CRO and CMO pipeline reporting: MQL trends, pipeline hygiene, keyword performance, and sales efficiency</li>
+          <li>Internal AI revenue tools: pipeline intelligence, call coaching, sales roleplay, and pre-call briefing used daily by the revenue org</li>
+          <li>Free trial redesign: 32% MQL to SAL lift, 71% faster to first onboarding, attendance doubled</li>
+          <li>FDE onsites: $1.2M in pipeline across Feld Entertainment, ESPN, and Ocean Partners</li>
+        </ul>
+        <div className="hero-byline">
+          <img src={headshotUrl} alt="Hunter Nilsen" className="hero-avatar" />
+          <div className="hero-byline-text">
+            <div className="hero-byline-name">Hunter Nilsen</div>
+            <div>RevOps & AI @ Domo</div>
           </div>
         </div>
       </div>
