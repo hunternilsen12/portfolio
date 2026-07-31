@@ -1,141 +1,143 @@
-# Portfolio — Hunter Nilsen
+# Portfolio site — hunternilsen.com
 
 ## Overview
-Single-page portfolio site for Hunter Nilsen. React 19 + TypeScript (strict) + Vite 8, hash-based routing, deployed to GitHub Pages at `hunternilsen.com/`.
+Single-page portfolio for Hunter Nilsen. React 19 + TypeScript (strict) + Vite 8, hash-based
+routing, deployed to GitHub Pages on the apex domain via `public/CNAME`.
 
-Ported from vanilla HTML/CSS/JS on 2026-04-22. Sidebar layout overhaul (v2) completed 2026-06-28.
+Ported from vanilla HTML/CSS/JS 2026-04-22. A sidebar layout shipped 2026-06-28, then was replaced
+by the current **top-nav editorial** layout on 2026-06-29 (`5b2278b`). The orphaned sidebar-era code
+was removed 2026-07-30.
 
 ## Stack
-- **Build:** Vite 8, `base: './'` (relative asset paths — works under the `/portfolio/` Pages subpath)
+- **Build:** Vite 8, `base: './'` (relative asset paths)
 - **Framework:** React 19 + TypeScript strict; functional components only
-- **Router:** `react-router-dom` HashRouter — routes `/`, `/project/:slug`, `/resume`
-- **Styling:** Plain CSS in `src/styles.css`, imported once in `main.tsx`. **Do not migrate to Tailwind or CSS Modules** without a separate discussion.
+- **Router:** `react-router-dom` HashRouter
+- **Styling:** Plain CSS in `src/styles.css`, imported once in `main.tsx`. **Do not migrate to
+  Tailwind or CSS Modules** without a separate discussion.
 - **State:** Local `useState` only. No Zustand / Context.
-- **Fonts:** Inter-only (300–700) via Google Fonts — `index.html` already linked. No Lato.
-- **Animations:** `lottie-react` for JSON-driven animations (lazy-loaded via `LottiePlayer`); CSS `.fade-up` / `.in-view` transitions for scroll-triggered entrance effects.
+- **Fonts:** **Inter** (300–700) for body + **Playfair Display** (700/900, incl. italic) for
+  editorial headings — both loaded at `index.html:20`
+- **No animation library.** `lottie-react` was dropped 2026-07-30; there is no scroll-entrance or
+  counter system in the live tree.
 
-## Layout Architecture
-Fixed-left sidebar + scrollable main content. **Not** a sticky top header.
+## Layout
+Top nav + stacked editorial sections, cream theme. There is no sidebar.
 
 ```
-┌──────────────┬────────────────────────────────┐
-│  Sidebar     │  Main content (scrolls)         │
-│  260px dark  │  margin-left: 260px             │
-│  #0f172a     │                                 │
-│              │  About / Experience / Skills     │
-│  [avatar]    │  Filters / Project grid          │
-│  [nav links] │                                 │
-│  [socials]   │                                 │
-│  [resume btn]│                                 │
-└──────────────┴────────────────────────────────┘
-Mobile ≤768px: sidebar hidden, fixed topbar (56px) + hamburger drawer
+┌───────────────────────────────────────┐
+│  TopNav (links + resume)              │
+├───────────────────────────────────────┤
+│  Hero         headshot + intro copy   │
+│  CuratedWork  "Top Projects" list     │
+│  Footer                               │
+└───────────────────────────────────────┘
 ```
 
-CSS tokens: `--sidebar-bg: #0f172a`, `--sidebar-width: 260px`, `--topbar-height: 56px`
+`/resume` and `/project/:slug` reuse `TopNav` + `Footer` around their own body.
 
 ## File Structure
-- `src/main.tsx` — Mounts App, imports `styles.css`
-- `src/App.tsx` — HashRouter with home, project detail, and resume routes
-- `src/styles.css` — Complete design system (~2,900 lines)
-- `src/assets/Headshot.jpg` — Sidebar avatar photo, imported via Vite
-- `src/types/project.ts` — `Project` type + 15-variant `RichSection` discriminated union; `Category` includes `'fde' | 'revsuite'`
-- `src/data/projects.ts` — `PROJECT_DATA: Project[]`, ~1,300 lines, 23 projects
-- `src/lib/seo.ts` — `applyProjectSeo` / `resetSeo` for title + meta tag updates
-- `src/lib/scrollMemory.ts` — Module-scoped scroll position preservation between home ↔ detail
-- `src/hooks/useScrollSpy.ts` — Active nav highlighting driven by scroll position
-- `src/hooks/useInView.ts` — Generic Intersection Observer hook; fire-once, returns `[RefCallback<T>, boolean]`
-- `src/hooks/useCountUp.ts` — rAF-based counter animation; respects `prefers-reduced-motion`
-- `src/components/Sidebar.tsx` — Fixed dark sidebar (avatar, nav, social icons, resume download). **Replaces Header.tsx** on Home + Resume pages.
-- `src/components/` — About, Experience, Skills, Filters, ProjectGrid, ProjectCard, Footer; Header.tsx is still present but unused.
-- `src/components/common/` — SkipLink, ScrollProgress, RouteAnnouncer, LottiePlayer, LottieInner
-- `src/components/detail/` — DetailHeader, PrevNextNav, PlainDetail, RichDetail, SectionDispatcher (all still present; only `ValueDetail` is rendered now)
-- `src/components/detail/sections/` — 15 section components incl. **ImageGallery**
-- `src/pages/Home.tsx` — Wraps `<Sidebar>` + `.main-content` in `.layout-shell`
-- `src/pages/ProjectDetail.tsx` — Always renders `<ValueDetail>` (no PlainDetail/RichDetail dispatch)
-- `src/pages/ResumePage.tsx` — Wraps `<Sidebar activeSection="/resume">` in `.layout-shell`
-- `src/pages/ValueDetail.tsx` — Simplified project detail: metrics strip + approach + outcome + screenshot gallery
+Everything under `src/` is live — 17 modules, no orphans as of 2026-07-30.
+
+- `src/main.tsx` — mounts `App`, imports `styles.css`
+- `src/App.tsx` — HashRouter + `SkipLink` / `ScrollProgress` / `RouteAnnouncer`
+- `src/styles.css` — design system, 3,532 lines (see Known traps — contains dead rules)
+- `src/assets/Headshot.jpg` — hero photo, imported via Vite (2.5 MB, uncompressed)
+- `src/types/project.ts` — `Project` type + 15-variant `RichSection` union
+- `src/data/projects.ts` — `PROJECT_DATA: Project[]`, 1,563 lines, **32 projects**
+- `src/lib/seo.ts` — `applyProjectSeo` / `resetSeo` for title + meta updates
+- `src/lib/scrollMemory.ts` — scroll position preserved across home ↔ detail
+- `src/components/` — `TopNav`, `Hero`, `CuratedWork`, `Footer`
+- `src/components/common/` — `SkipLink`, `ScrollProgress`, `RouteAnnouncer`
+- `src/pages/Home.tsx` — `TopNav + Hero + CuratedWork + Footer`
+- `src/pages/ProjectDetail.tsx` — slug lookup; always renders `ValueDetail`
+- `src/pages/ResumePage.tsx` — standalone resume; content is **hardcoded JSX**, not data-driven
+- `src/pages/ValueDetail.tsx` — metrics strip + approach + outcome + inline screenshot gallery
 
 ## Routing
-- `#/` — Home (About, Experience, Skills, Filters, Project grid)
-- `#/project/{slug}` — Project detail; **always renders ValueDetail** (ignores richDetail sections except `image-gallery`)
-- `#/resume` — Standalone resume page with PDF download
-- Invalid slug → `<Navigate to="/" replace />`
-- Nav links: `handleNav` guard — `href.startsWith('#/')` means route link (let HashRouter handle it); otherwise `e.preventDefault()` + imperative scroll via `onNavClick`.
+- `#/` — Home
+- `#/project/{slug}` — always `ValueDetail`
+- `#/resume` — resume page with PDF download
+- `#*` — catch-all falls through to `Home` (`App.tsx:18`)
+- Invalid slug → `<Navigate to="/" replace />` (`ProjectDetail.tsx:21`)
 
 ## Project Data Shape
-Every project needs: `slug`, `title`, `date` (YYYY-MM for sorting), `dateLabel`, `role`, `roleLabel`, `category`, `section`, `tags`, `impactAreas`, `summary`, `company`, `featured`, and a `detail` object.
+Required on every project: `slug`, `title`, `date` (YYYY-MM for sorting), `dateLabel`, `role`,
+`roleLabel`, `category`, `section`, `tags`, `impactAreas`, `summary`, `company`, `featured`, `detail`.
 
-`detail` shape (all required by `PlainDetail` type):
-- `tagline`, `problem`, `solution`, `building`, `results` — strings
-- `metrics: Array<{value: string; label: string}>` — 2–4 chips on the ValueDetail page
+`detail` requires `tagline`, `problem`, `solution`, `building`, `results` (strings) and
+`metrics: Array<{value, label}>`.
 
-`ValueDetail` renders: `solution` as "The Approach", `results` as "The Outcome", `metrics` as the impact strip. It ignores `tagline`, `problem`, `building` at render time — they're still required by the type.
-
-Optional fields:
-- `cardStats?: string[]` — KPI chips on the home-grid card
-- `richDetail?: RichDetail` — not rendered by ValueDetail except for `image-gallery` sections
-
-### Project Categories
 `Category = 'automation' | 'dashboards' | 'enablement' | 'intelligence' | 'strategic' | 'fde' | 'revsuite'`
 
-Current sections in projects.ts:
-- **FDE Customer Onsites** — Feld Entertainment (Monster Jam), ESPN (contact intelligence), Ocean Partners (trading dashboard)
-- **RevSuite** — RevReplay (Gong replacement), RevRadar (account intelligence), RevRoutine (enablement platform)
-- **Team Enablement Tools & Processes** — ADM Daily Command Center + others
-- **Automation & Workflows** — No Lead Left Behind + others
-- **Dashboards & Analytics** — existing projects
-- **Intelligence & AI Tools** — existing projects
-- **Strategic Initiatives** — existing projects
+`section` values in use: Team Enablement Tools & Processes (8), Dashboards & Data Infrastructure (6),
+RevSuite (5), Automation & Workflows (5), Strategic Initiatives (4), FDE Customer Onsites (3),
+Skills in Progress (1).
 
-### `image-gallery` section type
-Images are served from `public/screenshots/` (not bundled by Vite — stable paths). The `src` field is a relative string like `screenshots/comint-queue.jpg`. Drop real screenshots into `public/screenshots/` and update the `src` values in `projects.ts`. Existing gallery placeholders: COMINT, Command Structure, roosterIQ.
+## Known traps
+Read these before editing — each one causes work that looks right and changes nothing.
 
-## Animation System
-- **Scroll entrance:** Add `className="fade-up"` + `className+=" in-view"` (toggled by `useInView`) to any element. Optional stagger via `delay-1` through `delay-4`.
-- **Counter:** `useCountUp(target, durationMs, enabled)` — starts when `enabled` is true. Respects `prefers-reduced-motion`.
-- **Lottie:** `<LottiePlayer src="lottie/foo.json" />` — renders nothing if `src` is undefined. JSON files go in `public/lottie/`.
+**Required fields that never render.** `ValueDetail` shows only `metrics`, `solution` (as "The
+Approach"), and `results` (as "The Outcome"). `detail.tagline`, `detail.problem`, and
+`detail.building` are required by the type but rendered nowhere. Same for `status` and `section` —
+both are populated in the data but no live component reads them; the status badges and the
+section-grouped grid died with `ProjectGrid`. Editing any of these changes nothing on screen.
 
-## User Tasks (carry forward)
-- Drop screenshots into `public/screenshots/` — existing filenames in `projects.ts`
-- Export resume PDF → `public/hunter-nilsen-resume.pdf` (referenced by sidebar "Download CV" button and resume page)
-- Drop Lottie JSON files into `public/lottie/`, update `src` in `About.tsx` (currently `undefined`)
+**The home page is a hardcoded curation.** `CuratedWork.tsx:3-12` lists 8 slugs explicitly, plus a
+hardcoded "FDE AI Solution Sprints" block. Adding a project to `projects.ts` makes it reachable at
+`#/project/{slug}` but does **not** surface it on the home page — add the slug to `CURATED_SLUGS`.
 
-## Common Tasks
+**Hero and resume copy is hardcoded JSX.** Home intro text lives in `Hero.tsx`, not in any data
+file; the whole resume body is JSX in `ResumePage.tsx`. `PORTFOLIO-CONTENT.md` is an archive of that
+prose, not a source the build reads.
 
-### Add a new project
-1. Add an object to `PROJECT_DATA` in `src/data/projects.ts` — typecheck flags missing fields.
-2. Nothing else to touch — grid, filters, and prev/next nav derive automatically.
-3. To add screenshots: put files in `public/screenshots/` and add `richDetail.sections` with `type: 'image-gallery'`.
+**Screenshots are unbundled and currently missing.** `image-gallery` sections use plain relative
+paths served from `public/screenshots/` (deliberately not Vite-bundled, so paths stay stable). That
+directory is empty while `projects.ts` references 7 files, so those `<img>` tags render broken.
 
-### Add scroll-triggered animation to a component
-```tsx
-const [ref, inView] = useInView<HTMLElement>({ threshold: 0.1 })
-return <section ref={ref} className={'fade-up' + (inView ? ' in-view' : '')} />
-```
+**`styles.css` still holds dead rules.** Sidebar, project-grid, filter, and detail-section CSS
+survived the 2026-07-30 component deletion. Harmless but misleading — a selector existing there does
+not mean a component uses it.
 
-### Visual tweaks
-Edit `src/styles.css` directly. Do not inline Tailwind utilities.
+**The resume PDF lives in two places.** `public/hunter-nilsen-resume.pdf` is what the site serves;
+`../hunter-nilsen-resume.pdf` is the export you attach to applications. Re-exporting one without
+copying to the other silently 404s the Download CV button — exactly the bug fixed 2026-07-30.
+
+## Deleted 2026-07-30 — do not resurrect
+35 files were removed because nothing imported them (verified by BFS from `main.tsx`): the
+sidebar-era home page (`Sidebar`, `Header`, `About`, `Experience`, `Skills`, `Filters`,
+`ProjectGrid`, `ProjectCard`, `Companies`), the Lottie wrappers, all three scroll/counter hooks
+(`useInView`, `useCountUp`, `useScrollSpy`), and the entire `components/detail/` tree —
+`SectionDispatcher`, `RichDetail`, `PlainDetail`, `DetailHeader`, `PrevNextNav`, and all 16
+`sections/` renderers.
+
+They are recoverable from history at `57c51d5`, but they were **already unreachable** when deleted —
+recovering one does not restore a working feature. The `RichSection` union in `types/project.ts` was
+intentionally kept: `projects.ts` still carries `richDetail` data and `ValueDetail` reads
+`image-gallery` sections inline.
 
 ## Scripts
 - `npm run dev` — Vite dev server at `http://localhost:5173/`
-- `npm run typecheck` — `tsc -b`, strict mode; expect clean
-- `npm run build` — Type-check, then produce `dist/` with hashed asset filenames
-- `npm run deploy:pages` — Build and push `dist/` to the `gh-pages` branch
+- `npm run typecheck` — `tsc -b`, strict; expect clean
+- `npm run build` — typecheck, then `dist/` with hashed filenames
+- `npm run lint` — `eslint .`
+- `npm run preview` — serve the built `dist/`
+- `npm run deploy:pages` — **publishes live.** Build + force-push `dist/` to `gh-pages`
 
-## Deployment — GitHub Pages
-The live site is `https://hunternilsen.com/`.
+## Deployment
+Live at `https://hunternilsen.com/`, served from the `gh-pages` branch with `public/CNAME` holding
+the apex domain. Remote is `github.com/hunternilsen12/portfolio` — Hunter's personal GitHub, not the
+`domo-domosapiens` EMU org, so a non-EMU remote warning from `/session-start` is expected here.
 
-One command: `npm run deploy:pages`. The `gh-pages` package builds, then force-pushes `dist/` to `origin/gh-pages`.
+**Never deploy without being asked.** Committing is not publishing.
 
 ## Design Rules
-- **Fonts:** Inter-only (300–700) — no Lato
-- **Sidebar:** `#0f172a` dark, 260px wide. Main content `margin-left: 260px`.
-- **Accent red:** `#DC2626` (buttons, accents). Token: `var(--color-accent)`
-- **Surfaces:** `#f8fafc` (off-white), borders `#e2e8f0`
-- **Respect `prefers-reduced-motion`** — the `@media (prefers-reduced-motion: reduce)` block sets `transition-duration: 0.01ms` globally
+- **Fonts:** Inter for body, Playfair Display for editorial headings
+- **Accent red:** `#DC2626` — token `var(--color-accent)`
+- **Respect `prefers-reduced-motion`** — the `@media (prefers-reduced-motion: reduce)` block sets
+  `transition-duration: 0.01ms` globally
 
 ## Rollback
 ```bash
-cd ~/Documents/Projects/Portfolio
-git checkout v0.0.1-vanilla
+cd ~/work/portfolio/website
+git checkout v0.0.1-vanilla   # pre-React vanilla build
 ```

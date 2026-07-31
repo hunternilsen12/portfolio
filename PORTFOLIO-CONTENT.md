@@ -1,11 +1,19 @@
 # Hunter Nilsen — Portfolio Content
 
-> **How to use this file:** Edit content here first, then propagate changes to the React source files.
-> - About text → `src/components/About.tsx`
-> - Experience bullets → `src/components/Experience.tsx` + `src/pages/ResumePage.tsx`
-> - Skills → `src/components/Skills.tsx` + `src/pages/ResumePage.tsx`
-> - Projects → `src/data/projects.ts`
-> - Sidebar/resume header → `src/components/Sidebar.tsx` + `src/pages/ResumePage.tsx`
+> **This is a content archive, not a build input.** Nothing here is read by the site at build time.
+> The 2026-06-29 editorial redesign moved copy into components and the 2026-07-30 cleanup deleted the
+> old propagation targets (`About.tsx`, `Experience.tsx`, `Skills.tsx`, `Sidebar.tsx`).
+>
+> Where live copy actually lives:
+> - Home intro / hero → hardcoded JSX in `src/components/Hero.tsx`
+> - Home project list → `CURATED_SLUGS` + hardcoded FDE block in `src/components/CuratedWork.tsx`
+> - Resume page (all sections) → hardcoded JSX in `src/pages/ResumePage.tsx`
+> - Project data → `src/data/projects.ts` (the one place this file still maps 1:1)
+>
+> The **About / Experience / Skills** sections below have no current render target — they survive
+> here as the source prose for the resume and for any future rebuild of those sections. The project
+> table is still useful as a drafting surface, but `projects.ts` is authoritative and currently ahead
+> of it (missing `hubspot-revops-build` and `territory-framework`).
 
 ---
 

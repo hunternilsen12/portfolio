@@ -2,7 +2,7 @@
 
 Single-page portfolio at [hunternilsen.com](https://hunternilsen.com/).
 
-Built with Vite 5 + React 18 + TypeScript (strict). Hash-routed, client-side only.
+Built with Vite 8 + React 19 + TypeScript (strict). Hash-routed, client-side only.
 
 ## Develop
 
@@ -18,6 +18,8 @@ Dev server runs at `http://localhost:5173/`.
 ```bash
 npm run build       # writes to dist/
 npm run typecheck   # strict tsc -b
+npm run lint        # eslint .
+npm run preview     # serve the built dist/
 ```
 
 ## Deploy to GitHub Pages
