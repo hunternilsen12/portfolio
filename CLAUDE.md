@@ -36,14 +36,43 @@ Top nav + stacked editorial sections, cream theme. There is no sidebar.
 `/resume` and `/project/:slug` reuse `TopNav` + `Footer` around their own body.
 
 ## File Structure
-Everything under `src/` is live — 17 modules, no orphans as of 2026-07-30.
+Everything under `src/` is live — no orphaned modules.
+
+**Counts live in commands, not in this prose.** Hand-maintained numbers here rotted before; don't
+re-add them. To re-check for orphans, BFS the import graph from the entry point — a naive "is this
+filename imported anywhere" grep is wrong, because a dead file can still be imported by another
+dead file:
+
+```bash
+python3 - <<'EOF'
+import os, re
+imp = re.compile(r'''from\s+['"](\.{1,2}/[^'"]+)['"]''')
+def res(b, s):
+    p = os.path.normpath(os.path.join(os.path.dirname(b), s))
+    for c in (p+'.tsx', p+'.ts', os.path.join(p,'index.tsx'), os.path.join(p,'index.ts'), p):
+        if os.path.isfile(c) and c.endswith(('.ts','.tsx')): return c
+allf = {os.path.join(r,f) for r,_,fs in os.walk('src') for f in fs if f.endswith(('.ts','.tsx'))}
+reach, st = set(), ['src/main.tsx']
+while st:
+    c = st.pop()
+    if c in reach: continue
+    reach.add(c)
+    for s in imp.findall(open(c, encoding='utf-8').read()):
+        t = res(c, s)
+        if t: st.append(t)
+print(f"reachable={len(reach)}  orphans={sorted(allf - reach)}")
+EOF
+```
 
 - `src/main.tsx` — mounts `App`, imports `styles.css`
 - `src/App.tsx` — HashRouter + `SkipLink` / `ScrollProgress` / `RouteAnnouncer`
-- `src/styles.css` — design system, 3,532 lines (see Known traps — contains dead rules)
-- `src/assets/Headshot.jpg` — hero photo, imported via Vite (2.5 MB, uncompressed)
+- `src/styles.css` — design system, the whole stylesheet (`wc -l src/styles.css`). See Known traps:
+  it still holds dead rules
+- `src/assets/Headshot.jpg` — hero photo, imported via Vite. Uncompressed, and by far the largest
+  asset (`ls -l src/assets/Headshot.jpg`)
 - `src/types/project.ts` — `Project` type + 15-variant `RichSection` union
-- `src/data/projects.ts` — `PROJECT_DATA: Project[]`, 1,563 lines, **32 projects**
+- `src/data/projects.ts` — `PROJECT_DATA: Project[]`; project count is
+  `grep -cE '^    slug:' src/data/projects.ts`
 - `src/lib/seo.ts` — `applyProjectSeo` / `resetSeo` for title + meta updates
 - `src/lib/scrollMemory.ts` — scroll position preserved across home ↔ detail
 - `src/components/` — `TopNav`, `Hero`, `CuratedWork`, `Footer`
@@ -69,9 +98,13 @@ Required on every project: `slug`, `title`, `date` (YYYY-MM for sorting), `dateL
 
 `Category = 'automation' | 'dashboards' | 'enablement' | 'intelligence' | 'strategic' | 'fde' | 'revsuite'`
 
-`section` values in use: Team Enablement Tools & Processes (8), Dashboards & Data Infrastructure (6),
-RevSuite (5), Automation & Workflows (5), Strategic Initiatives (4), FDE Customer Onsites (3),
-Skills in Progress (1).
+`section` values in use: Team Enablement Tools & Processes, Dashboards & Data Infrastructure,
+RevSuite, Automation & Workflows, Strategic Initiatives, FDE Customer Onsites, Skills in Progress.
+For the current per-section tally:
+
+```bash
+grep -oE 'section: "[^"]*"' src/data/projects.ts | sort | uniq -c | sort -rn
+```
 
 ## Known traps
 Read these before editing — each one causes work that looks right and changes nothing.

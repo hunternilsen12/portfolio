@@ -4,9 +4,16 @@ Split out of `portfolio/TODO.md` on 2026-08-20 when upper-level TODOs were remov
 its own git repo (`hunternilsen12/portfolio`, a personal account — not `domo-domosapiens`), so its task
 list belongs here.
 
-⚠ This repo is on branch `cleanup/remove-dead-sidebar-code` with **no upstream set**, carrying 27 local
-commits. `git log @{u}..` reports 0 because there is no `@{u}` — set an upstream or fold the branch in
-before trusting any unpushed count.
+⚠ This repo is on branch `cleanup/remove-dead-sidebar-code` with **no upstream set**. `git log @{u}..`
+does not report 0 — it *errors*, because there is no `@{u}`, so any tool reading it sees nothing rather
+than a warning. Set an upstream or fold the branch in. For the real unpushed count, compare against the
+remote branch explicitly:
+
+```bash
+git rev-list --count origin/main..HEAD
+```
+
+A hardcoded number lived here and was wrong within a day; don't re-add one.
 
 ## Blocking
 
@@ -22,7 +29,8 @@ _Nothing blocked._
       ```bash
       python3 -c "import re,os;print([r for r in set(re.findall(r'\"((?:screenshots|logos|lottie)/[^\"]+)\"',open('src/data/projects.ts').read())) if not os.path.exists('public/'+r)])"
       ```
-- [ ] Compress `src/assets/Headshot.jpg` — 2.5 MB ships uncompressed and is the single largest asset
+- [ ] Compress `src/assets/Headshot.jpg` — ships uncompressed and is the single largest asset
+      (`ls -l src/assets/Headshot.jpg`)
 - [ ] Deploy the resume-PDF fix: `npm run deploy:pages` (publishes live)
 - [ ] Reconcile `PORTFOLIO-CONTENT.md` with `projects.ts` — the archive is missing `hubspot-revops-build`
       and `territory-framework`
@@ -32,7 +40,7 @@ _Nothing blocked._
 - [ ] Decide the fate of the unused `status` and `section` project fields — both are set in `projects.ts`
       but no live component reads them (badges and section grouping died with `ProjectGrid`). Either wire
       them into `CuratedWork`/`ValueDetail` or drop them from the type
-- [ ] Prune dead rules from `src/styles.css` (3,532 lines) — sidebar, project-grid, filter, and
+- [ ] Prune dead rules from `src/styles.css` — sidebar, project-grid, filter, and
       detail-section rules are unreachable after the 2026-07-30 cleanup. Needs a visual check, so not a
       blind delete
 
