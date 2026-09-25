@@ -171,6 +171,6 @@ the apex domain. Remote is `github.com/hunternilsen12/portfolio` — Hunter's pe
 
 ## Rollback
 ```bash
-cd ~/work/portfolio/website
+cd ~/work/personal/website
 git checkout v0.0.1-vanilla   # pre-React vanilla build
 ```
